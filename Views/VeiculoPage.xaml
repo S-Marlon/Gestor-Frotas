@@ -3,14 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Frotas.Views.VeiculoPage"
              Title="Veiculos">
-    <StackLayout Padding="10">
-        <Button Text="Adicionar Veículo"  />
 
-        <CollectionView x:Name="ListaVeiculos" SelectionMode="Single" >
+    <StackLayout Padding="10">
+        <Button Text="Adicionar Veículo" Clicked="OnAdicionarClicked" />
+
+        <CollectionView x:Name="ListaVeiculos"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelecionado">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Margin="5" BorderColor="Gray">
-                        <Label Text="{Binding Nome}" FontSize="18" />
+                    <Frame Margin="5" BorderColor="Gray" Padding="10">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Modelo}" FontAttributes="Bold" />
+                            <Label Text="{Binding Marca}" />
+                            <Label Text="{Binding Placa}" FontSize="12" />
+                        </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
