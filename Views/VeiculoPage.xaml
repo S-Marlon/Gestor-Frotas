@@ -17,6 +17,7 @@
                             <Label Text="{Binding Modelo}" FontAttributes="Bold" />
                             <Label Text="{Binding Marca}" />
                             <Label Text="{Binding Placa}" FontSize="12" />
+                            <Button Text="Excluir" Clicked="OnExcluirClicked" CommandParameter="{Binding .}" />
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>

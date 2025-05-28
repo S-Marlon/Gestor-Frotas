@@ -10,7 +10,9 @@ namespace Frotas.Services
         public SQLiteHelper(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Veiculo>().Wait(); // outras tabelas depois
+            _database.CreateTableAsync<Veiculo>().Wait();
+            _database.CreateTableAsync<Abastecimento>().Wait();
+            _database.CreateTableAsync<Combustivel>().Wait();
         }
 
         // CRUD Veículos
@@ -25,5 +27,44 @@ namespace Frotas.Services
 
         public Task<int> DeletarVeiculoAsync(Veiculo veiculo) =>
             _database.DeleteAsync(veiculo);
+
+        // CRUD Abastecimentos
+
+        public Task<List<Abastecimento>> GetAbastecimentosPorVeiculoAsync(int veiculoId)
+        {
+            return _database.Table<Abastecimento>()
+                            .Where(a => a.VeiculoId == veiculoId)
+                            .ToListAsync();
+        }
+
+        public async Task ExcluirAbastecimentosPorVeiculoAsync(int veiculoId)
+        {
+            var abastecimentos = await GetAbastecimentosPorVeiculoAsync(veiculoId);
+            foreach (var a in abastecimentos)
+            {
+                await _database.DeleteAsync(a);
+            }
+        }
+
+        // CRUD Combustíveis
+        public Task<List<Combustivel>> GetCombustiveisAsync() =>
+            _database.Table<Combustivel>().ToListAsync();
+
+        public Task<Combustivel> GetCombustivelAsync(int id) =>
+            _database.Table<Combustivel>().Where(c => c.Id == id).FirstOrDefaultAsync();
+
+        public Task<int> SalvarCombustivelAsync(Combustivel combustivel) =>
+            combustivel.Id != 0 ? _database.UpdateAsync(combustivel) : _database.InsertAsync(combustivel);
+
+        public Task<int> DeletarCombustivelAsync(Combustivel combustivel) =>
+            _database.DeleteAsync(combustivel);
+
+        // Verificar se combustível está em uso
+        public async Task<bool> CombustivelEmUsoAsync(int combustivelId)
+        {
+            return await _database.Table<Abastecimento>()
+                .Where(a => a.CombustivelId == combustivelId)
+                .CountAsync() > 0;
+        }
     }
 }

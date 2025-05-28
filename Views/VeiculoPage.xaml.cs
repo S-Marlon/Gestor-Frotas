@@ -32,4 +32,26 @@ public partial class VeiculoPage : ContentPage
         // Desmarcar item após o clique
         ListaVeiculos.SelectedItem = null;
     }
+
+    private async void OnExcluirClicked(object sender, EventArgs e)
+    {
+        if (sender is Button btn && btn.CommandParameter is Veiculo veiculo)
+        {
+            bool confirm = await DisplayAlert("Confirmação",
+                $"Excluir o veículo '{veiculo.Modelo}' e todos os abastecimentos associados?",
+                "Sim", "Não");
+
+            if (confirm)
+            {
+                // Primeiro exclui abastecimentos
+                await App.Banco.ExcluirAbastecimentosPorVeiculoAsync(veiculo.Id);
+
+                // Depois exclui o veículo
+                await App.Banco.DeletarVeiculoAsync(veiculo);
+
+                // Atualiza a lista
+                ListaVeiculos.ItemsSource = await App.Banco.GetVeiculosAsync();
+            }
+        }
+    }
 }
