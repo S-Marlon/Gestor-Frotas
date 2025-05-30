@@ -23,7 +23,7 @@ namespace Frotas
 
         private async void OnAbastecimentosClicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new AbastecimentoPage());
+            await Navigation.PushAsync(new AbastecimentoPage());
         }
 
     }

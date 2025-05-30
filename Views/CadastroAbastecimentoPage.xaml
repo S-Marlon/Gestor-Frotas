@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frotas.Views.CadastroAbastecimentoPage"
+             Title="Cadastro de Abastecimento">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Picker x:Name="veiculoPicker"
+                    Title="Selecione o Veículo"
+                    ItemDisplayBinding="{Binding Modelo}" />
+
+            <Picker x:Name="combustivelPicker"
+                    Title="Selecione o Combustível"
+                    ItemDisplayBinding="{Binding Nome}" />
+
+            <Entry x:Name="litrosEntry" Placeholder="Litros" Keyboard="Numeric" />
+            <Entry x:Name="valorEntry" Placeholder="Valor Total (R$)" Keyboard="Numeric" />
+            <DatePicker x:Name="dataPicker" />
+
+            <Button Text="Salvar" Clicked="OnSalvarClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

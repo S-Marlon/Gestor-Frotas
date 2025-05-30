@@ -29,7 +29,7 @@ public partial class CombustivelPage : ContentPage
 
         ListaCombustiveis.SelectedItem = null;
     }
-    
+
     private async void OnExcluirClicked(object sender, EventArgs e)
     {
         if (sender is Button btn && btn.CommandParameter is Combustivel combustivel)

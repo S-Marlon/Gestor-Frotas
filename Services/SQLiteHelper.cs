@@ -1,5 +1,5 @@
-﻿using SQLite;
-using Frotas.Models;
+﻿using Frotas.Models;
+using SQLite;
 
 namespace Frotas.Services
 {
@@ -66,5 +66,20 @@ namespace Frotas.Services
                 .Where(a => a.CombustivelId == combustivelId)
                 .CountAsync() > 0;
         }
+
+
+        // CRUD Avastecimento
+
+        public Task<List<Abastecimento>> GetAbastecimentosAsync() =>
+            _database.Table<Abastecimento>().OrderByDescending(a => a.Data).ToListAsync();
+
+        public Task<Abastecimento> GetAbastecimentoAsync(int id) =>
+            _database.Table<Abastecimento>().Where(a => a.Id == id).FirstOrDefaultAsync();
+
+        public Task<int> SalvarAbastecimentoAsync(Abastecimento abastecimento) =>
+            abastecimento.Id != 0 ? _database.UpdateAsync(abastecimento) : _database.InsertAsync(abastecimento);
+
+        public Task<int> DeletarAbastecimentoAsync(Abastecimento abastecimento) =>
+            _database.DeleteAsync(abastecimento);
     }
 }
