@@ -10,7 +10,8 @@
             <Label Text="Gestão de Frotas"
                FontSize="32"
                HorizontalOptions="Center" />
-
+            
+        />
             <Button Text="Veículos" Clicked="OnVeiculosClicked"/>
             <Button Text="Combustíveis" Clicked="OnCombustiveisClicked"/>
             <Button Text="Abastecimentos" Clicked="OnAbastecimentosClicked"/>

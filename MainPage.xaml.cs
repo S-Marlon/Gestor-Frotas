@@ -18,7 +18,7 @@ namespace Frotas
 
         private async void OnCombustiveisClicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new CombustivelPage());
+            await Navigation.PushAsync(new CombustivelPage());
         }
 
         private async void OnAbastecimentosClicked(object sender, EventArgs e)

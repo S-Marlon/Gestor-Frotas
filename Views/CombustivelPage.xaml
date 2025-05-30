@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Frotas.Views.CombustivelPage"
+             Title="Combustiveis">
+    <StackLayout Padding="10">
+        <Button Text="Adicionar Combustível" Clicked="OnAdicionarClicked" />
+
+        <CollectionView x:Name="ListaCombustiveis"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelecionado">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="5" BorderColor="Gray" Padding="10">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Nome}" FontSize="18" />
+                            <Button Text="Excluir" Clicked="OnExcluirClicked" CommandParameter="{Binding .}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
