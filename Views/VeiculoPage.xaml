@@ -15,8 +15,10 @@
                     <Frame Margin="5" BorderColor="Gray" Padding="10">
                         <VerticalStackLayout>
                             <Label Text="{Binding Modelo}" FontAttributes="Bold" />
-                            <Label Text="{Binding Marca}" />
-                            <Label Text="{Binding Placa}" FontSize="12" />
+                            <Label Text="{Binding Placa, StringFormat='Placa: {0}'}" FontSize="12" />
+                            <Label Text="{Binding Fabricante, StringFormat='Fabricante: {0}'}" />
+                            <Label Text="{Binding Ano, StringFormat='Ano: {0}'}" />
+                            <Label Text="{Binding Cor ,StringFormat='Cor: {0}'}" />
                             <Button Text="Excluir" Clicked="OnExcluirClicked" CommandParameter="{Binding .}" />
                         </VerticalStackLayout>
                     </Frame>

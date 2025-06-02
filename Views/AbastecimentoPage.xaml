@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Frotas.Views.AbastecimentoPage"
-             Title="AbastecimentoPage">
+             Title="Abastecimento">
     <StackLayout Padding="10">
         <Button Text="Adicionar Abastecimento" Clicked="OnAdicionarClicked" />
 
@@ -13,9 +13,10 @@
                 <DataTemplate>
                     <Frame Margin="5" BorderColor="Gray" Padding="10">
                         <VerticalStackLayout>
-                            <Label Text="{Binding Data, StringFormat='Data: {0:dd/MM/yyyy}'}" />
+                            <Label Text="{Binding Data, StringFormat='Data do abastecimento: {0:dd/MM/yyyy}'}" />
                             <Label Text="{Binding Litros, StringFormat='Litros: {0}'}" />
-                            <Label Text="{Binding ValorTotal, StringFormat='Valor: R$ {0:F2}'}" />
+                            <Label Text="{Binding PrecoLitro, StringFormat='Valor: R$ {0:F2}'}" />
+                            <Label Text="{Binding Km, StringFormat='Km: {0:F1}'}" />
                             <Button Text="Excluir" Clicked="OnExcluirClicked" CommandParameter="{Binding .}" />
                         </VerticalStackLayout>
                     </Frame>

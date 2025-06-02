@@ -25,10 +25,10 @@ namespace Frotas
         {
             InitializeComponent();
 
-            // 🔥 Apaga o banco antigo (apenas durante desenvolvimento)
-            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "gestorfrota.db3");
-            if (File.Exists(dbPath))
-                File.Delete(dbPath); // <-- Isso apaga o banco SQLite
+            //// Apaga o banco antigo
+            //var dbPath = Path.Combine(FileSystem.AppDataDirectory, "gestorfrota.db3");
+            //if (File.Exists(dbPath))
+            //    File.Delete(dbPath); // <-- apaga o banco SQLite
 
             MainPage = new NavigationPage(new MainPage());
         }

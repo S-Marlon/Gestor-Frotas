@@ -13,6 +13,6 @@ namespace Frotas.Models
         public long Km { get; set; }
 
         public long VeiculoId { get; set; } // FK
-        public long CombustivelId { get; set; } // FK
+        public long  CombustivelId { get; set; } // FK
     }
 }

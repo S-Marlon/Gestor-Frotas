@@ -14,6 +14,7 @@
                     <Frame Margin="5" BorderColor="Gray" Padding="10">
                         <VerticalStackLayout>
                             <Label Text="{Binding Nome}" FontSize="18" />
+                            <Label Text="{Binding Valor, StringFormat='Valor: R$ {0:F2}'}"  FontSize="12" />
                             <Button Text="Excluir" Clicked="OnExcluirClicked" CommandParameter="{Binding .}" />
                         </VerticalStackLayout>
                     </Frame>
