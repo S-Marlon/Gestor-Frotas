@@ -15,7 +15,8 @@
                     ItemDisplayBinding="{Binding Nome}" />
 
             <Entry x:Name="litrosEntry" Placeholder="Litros" Keyboard="Numeric" />
-            <Entry x:Name="valorEntry" Placeholder="Valor Total (R$)" Keyboard="Numeric" />
+            <Entry x:Name="precoLitroEntry" Placeholder="Preço por Litro (R$)" Keyboard="Numeric" />
+            <Entry x:Name="kmEntry" Placeholder="KM do Abastecimento" Keyboard="Numeric" />
             <DatePicker x:Name="dataPicker" />
 
             <Button Text="Salvar" Clicked="OnSalvarClicked" />

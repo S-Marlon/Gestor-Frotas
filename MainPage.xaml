@@ -15,6 +15,7 @@
             <Button Text="Veículos" Clicked="OnVeiculosClicked"/>
             <Button Text="Combustíveis" Clicked="OnCombustiveisClicked"/>
             <Button Text="Abastecimentos" Clicked="OnAbastecimentosClicked"/>
+            <Button Text="Relatórios" Clicked="OnRelatoriosClicked"/>
         </VerticalStackLayout>
     </ScrollView>
 

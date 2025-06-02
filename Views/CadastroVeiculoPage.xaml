@@ -5,12 +5,11 @@
              Title="CadastroVeiculoPage">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-            <Entry x:Name="modeloEntry" Placeholder="Modelo" />
-            <Entry x:Name="marcaEntry" Placeholder="Marca" />
-            <Entry x:Name="anoEntry" Placeholder="Ano" Keyboard="Numeric" />
             <Entry x:Name="placaEntry" Placeholder="Placa" />
-            <Entry x:Name="kmEntry" Placeholder="Km Atual" Keyboard="Numeric" />
-
+            <Entry x:Name="fabricanteEntry" Placeholder="Fabricante" />
+            <Entry x:Name="modeloEntry" Placeholder="Modelo" />
+            <Entry x:Name="corEntry" Placeholder="Cor" />
+            <Entry x:Name="anoEntry" Placeholder="Ano" Keyboard="Numeric" />
             <Button Text="Salvar" Clicked="OnSalvarClicked" />
         </VerticalStackLayout>
     </ScrollView>

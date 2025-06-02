@@ -28,8 +28,9 @@ public partial class CadastroAbastecimentoPage : ContentPage
         {
             veiculoPicker.SelectedItem = veiculos.FirstOrDefault(v => v.Id == abastecimentoExistente.VeiculoId);
             combustivelPicker.SelectedItem = combustiveis.FirstOrDefault(c => c.Id == abastecimentoExistente.CombustivelId);
-            litrosEntry.Text = abastecimentoExistente.Litros.ToString();
-            valorEntry.Text = abastecimentoExistente.ValorTotal.ToString();
+            litrosEntry.Text = abastecimentoExistente.Litros.ToString("F2");
+            precoLitroEntry.Text = abastecimentoExistente.PrecoLitro.ToString("F2");
+            kmEntry.Text = abastecimentoExistente.Km.ToString();
             dataPicker.Date = abastecimentoExistente.Data;
         }
         else
@@ -42,8 +43,9 @@ public partial class CadastroAbastecimentoPage : ContentPage
     {
         if (veiculoPicker.SelectedItem is not Veiculo veiculo ||
             combustivelPicker.SelectedItem is not Combustivel combustivel ||
-            !double.TryParse(litrosEntry.Text, out double litros) ||
-            !double.TryParse(valorEntry.Text, out double valor))
+            !decimal.TryParse(litrosEntry.Text, out decimal litros) ||
+            !decimal.TryParse(precoLitroEntry.Text, out decimal preco) ||
+            !long.TryParse(kmEntry.Text, out long km))
         {
             await DisplayAlert("Erro", "Preencha todos os campos corretamente.", "OK");
             return;
@@ -55,7 +57,8 @@ public partial class CadastroAbastecimentoPage : ContentPage
             VeiculoId = veiculo.Id,
             CombustivelId = combustivel.Id,
             Litros = litros,
-            ValorTotal = valor,
+            PrecoLitro = preco,
+            Km = km,
             Data = dataPicker.Date
         };
 

@@ -60,7 +60,7 @@ namespace Frotas.Services
             _database.DeleteAsync(combustivel);
 
         // Verificar se combustível está em uso
-        public async Task<bool> CombustivelEmUsoAsync(int combustivelId)
+        public async Task<bool> CombustivelEmUsoAsync(long combustivelId)
         {
             return await _database.Table<Abastecimento>()
                 .Where(a => a.CombustivelId == combustivelId)

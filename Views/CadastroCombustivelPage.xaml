@@ -5,7 +5,7 @@
              Title="CadastroCombustivelPage">
     <VerticalStackLayout Padding="20" Spacing="15">
         <Entry x:Name="nomeEntry" Placeholder="Nome do combustível" />
-
+        <Entry x:Name="valorEntry" Placeholder="Valor (R$)" Keyboard="Numeric" />
         <Button Text="Salvar" Clicked="OnSalvarClicked" />
     </VerticalStackLayout>
 </ContentPage>

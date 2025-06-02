@@ -13,27 +13,27 @@ public partial class CadastroVeiculoPage : ContentPage
         if (veiculo != null)
         {
             veiculoExistente = veiculo;
-            modeloEntry.Text = veiculo.Modelo;
-            marcaEntry.Text = veiculo.Marca;
-            anoEntry.Text = veiculo.Ano.ToString();
             placaEntry.Text = veiculo.Placa;
-            kmEntry.Text = veiculo.KmAtual.ToString();
+            fabricanteEntry.Text = veiculo.Fabricante;
+            modeloEntry.Text = veiculo.Modelo;
+            corEntry.Text = veiculo.Cor;
+            anoEntry.Text = veiculo.Ano.ToString();
         }
     }
 
     private async void OnSalvarClicked(object sender, EventArgs e)
     {
-        var novoVeiculo = new Veiculo
+        var veiculo = new Veiculo
         {
             Id = veiculoExistente?.Id ?? 0,
-            Modelo = modeloEntry.Text,
-            Marca = marcaEntry.Text,
-            Ano = int.TryParse(anoEntry.Text, out int ano) ? ano : 0,
             Placa = placaEntry.Text,
-            KmAtual = double.TryParse(kmEntry.Text, out double km) ? km : 0
+            Fabricante = fabricanteEntry.Text,
+            Modelo = modeloEntry.Text,
+            Cor = corEntry.Text,
+            Ano = int.TryParse(anoEntry.Text, out int ano) ? ano : 0
         };
 
-        await App.Banco.SalvarVeiculoAsync(novoVeiculo);
+        await App.Banco.SalvarVeiculoAsync(veiculo);
         await Navigation.PopAsync();
     }
 }

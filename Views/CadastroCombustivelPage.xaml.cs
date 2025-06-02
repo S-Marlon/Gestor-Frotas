@@ -14,21 +14,24 @@ public partial class CadastroCombustivelPage : ContentPage
         {
             combustivelExistente = combustivel;
             nomeEntry.Text = combustivel.Nome;
+            valorEntry.Text = combustivel.Valor.ToString("F2");
         }
     }
 
     private async void OnSalvarClicked(object sender, EventArgs e)
     {
-        if (string.IsNullOrWhiteSpace(nomeEntry.Text))
+        if (string.IsNullOrWhiteSpace(nomeEntry.Text) ||
+            !decimal.TryParse(valorEntry.Text, out decimal valor))
         {
-            await DisplayAlert("Erro", "Digite um nome para o combustível.", "OK");
+            await DisplayAlert("Erro", "Preencha todos os campos corretamente.", "OK");
             return;
         }
 
         var novoCombustivel = new Combustivel
         {
             Id = combustivelExistente?.Id ?? 0,
-            Nome = nomeEntry.Text.Trim()
+            Nome = nomeEntry.Text.Trim(),
+            Valor = valor
         };
 
         await App.Banco.SalvarCombustivelAsync(novoCombustivel);
