@@ -1,59 +1,48 @@
-✅ Resumo do Projeto
-Tecnologias:
+# Gestor de Frotas
 
-C#
+Aplicativo móvel desenvolvido com .NET MAUI para gerenciamento de frotas de veículos, permitindo o controle de veículos, combustíveis e abastecimentos. Feito como trabalho de conclusão de semestre na faculdade 
 
-MAUI (para app mobile)
+# 🚀 Funcionalidades
+Cadastro e Edição de Veículos: Adicione, edite e exclua veículos da frota.
+Gerenciamento de Combustíveis: Mantenha um registro dos tipos de combustíveis utilizados.
 
-SQLite (persistência local)
+Registro de Abastecimentos: Registre abastecimentos associando veículos e combustíveis, incluindo informações como litros abastecidos, preço por litro, quilometragem e data.
 
-Funcionalidades obrigatórias:
+Relatórios:
 
-1. Cadastro e Edição
-Veículos
+Quantidade total abastecida por tipo de combustível.
 
-Tipos de combustíveis
+Percentual de uso por tipo de combustível.
 
-Abastecimentos
+Média de consumo por veículo (km/l).
 
-2. Regras de exclusão
-Ao excluir veículo → excluir seus abastecimentos
+Regras de Exclusão:
 
-Combustível em uso não pode ser excluído
+Ao excluir um veículo, todos os seus abastecimentos são excluídos.
 
-3. Navegação
-App com NavigationPage e uma tela inicial com 3 botões:
+Não é possível excluir um combustível que esteja em uso por algum abastecimento.
 
-Veículos
+# 🛠️ Tecnologias Utilizadas
+Linguagem: C#
 
-Combustíveis
+Framework: .NET MAUI
 
-Abastecimentos
+Banco de Dados: SQLite (persistência local)
 
-Cada botão leva a uma lista com:
+# 📱 Estrutura do Projeto
+Models/: Contém as classes de modelo, como Veiculo, Combustivel e Abastecimento.
 
-Botão "Adicionar" (abre tela de cadastro)
+Services/: Inclui o SQLiteHelper.cs, responsável pelas operações de banco de dados.
 
-Clique no item → leva à tela de edição
+Views/: Contém as páginas da interface do usuário, como cadastro e listagem de veículos, combustíveis e abastecimentos.
 
-4. Relatórios
-Quantidade total por tipo de combustível
+Resources/: Arquivos de recursos, como imagens e estilos.
 
-Percentual de uso por tipo de combustível
-
-Média de consumo do carro (independente do tipo de combustível)
-
-'''bash
-
-/Model
-  - Veiculo.cs
-  - Combustivel.cs
-  - Abastecimento.cs
-
-/View
-  - Paginas para lista/cadastro/edição
-
-/ViewModel
-  - Lógica e ligação com a UI (caso use MVVM)
-
-'''
+App.xaml e AppShell.xaml: Configurações e estruturação da aplicação.
+pt.wikipedia.org
+github.com
++2
+github.com
++2
+uece.br
++2
